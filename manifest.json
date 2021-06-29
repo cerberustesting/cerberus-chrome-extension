@@ -23,11 +23,11 @@
   "background": {
     "service_worker": "background.js"
   },
-  "options_page": "options/options.html",
   "permissions": ["storage", "tabs", "scripting"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
+      "css": ["contentScript.css"],
       "js": ["contentScript.js"]
     }
   ]
