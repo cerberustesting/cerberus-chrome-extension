@@ -48,10 +48,10 @@ const getPageSourceCode = () => {
 
 const displayCopyNotification = () => {
   const notificationContainerHtml = `<div id="notification-container"></div>`;
-  const notificationId = `${cerberusElement.action}-${cerberusElement.dateTime}`;
+  const notificationId = `${cerberusElement.action}-${new Date().getTime()}`;
   const notificationHTML = `
     <div id="${notificationId}" class="notification">
-      <p>${cerberusElement.content.slice(0, 40)}...</p>
+      <p>[copied to clipboard] ${cerberusElement.content.slice(0, 50)}...</p>
     </div>
   `;
 
