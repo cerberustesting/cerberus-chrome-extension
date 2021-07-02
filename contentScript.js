@@ -74,6 +74,7 @@ const displayCopyNotification = () => {
 
 // function to save element to the clipboard by temporary creating a new node
 const copyToClipboard = () => {
+  //cleanupSourceCode();
   let temporaryElement = document.createElement("textarea");
   document.body.appendChild(temporaryElement);
   temporaryElement.value = cerberusElement.content;
@@ -81,6 +82,23 @@ const copyToClipboard = () => {
   document.execCommand("copy");
   document.body.removeChild(temporaryElement);
   displayCopyNotification();
+};
+
+//TODO fix me !
+const cleanupSourceCode = () => {
+  console.log(
+    cerberusElement.content.indexOf(`<div id="notification-container">`)
+  );
+  const startIndexOfNotificationNode = cerberusElement.content.indexOf(
+    `<div id="notification-container">`
+  );
+  console.log(
+    cerberusElement.content.substring(0, startIndexOfNotificationNode)
+  );
+
+  cerberusElement.content =
+    cerberusElement.content.substring(0, startIndexOfNotificationNode) +
+    "</body></html>";
 };
 
 /*
@@ -104,7 +122,10 @@ const saveToStorage = function (action, elementToSave) {
 
 // main erratum function
 const getErratumElement = (event) => {
+  event.stopImmediatePropagation();
   event.preventDefault();
+  event.stopPropagation();
+
   const xpath = getXPathFromElement(event.target);
   const htmlSourceCode = getPageSourceCode();
   cerberusElement.action = "erratum";
@@ -119,7 +140,7 @@ const getErratumElement = (event) => {
 const addHighlightOnElement = (event) => {
   event.preventDefault();
   // highlight the mouseover target
-  event.target.style.backgroundColor = "#333333";
+  event.target.style.backgroundColor = "#555555";
   event.target.style.color = "white";
   event.target.style.cursor = "pointer";
 };
