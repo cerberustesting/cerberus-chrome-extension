@@ -3,6 +3,7 @@
   bottom: 1rem;
   left: 1rem;
   width: 550px;
+  z-index: 10000;
 }
 
 .notification {
