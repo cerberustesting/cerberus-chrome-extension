@@ -7,7 +7,6 @@ chrome.storage.sync.get(["isErratumActive"], (response) => {
 
 erratumButton.addEventListener("click", () => {
   chrome.storage.sync.get(["isErratumActive"], (response) => {
-    console.log("hello");
     chrome.storage.sync.set(
       {
         isErratumActive: !response.isErratumActive,
@@ -20,12 +19,9 @@ erratumButton.addEventListener("click", () => {
 });
 
 const setButtonStyle = (isActive) => {
-  console.log(isActive);
   if (isActive) {
-    console.log("btn active");
     erratumButton.classList.add("erratum-btn-active");
   } else {
-    console.log("btn not active");
     erratumButton.classList.remove("erratum-btn-active");
   }
 };
