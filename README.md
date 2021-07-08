@@ -6,20 +6,20 @@ A Cerberus companion extension for Google Chrome browser.
 ## What is it ?
 
 Cerberus extension is a companion app for testers using Cerberus Testing platform (see [official website](https://cerberus-testing.com/) and [GitHub repository](https://github.com/cerberustesting/cerberus-source)).
-This extension aim to provide various tools for testers to help them completing specific Cerberus use cases.
+This extension aims to provide various tools for testers to help them complete specific Cerberus use cases.
 
 ## Features
 
-- **Erratum use case :** copy to clipboard the full xpath + the source code formated like `erratum=<full xpath>,<source code>`
+- **Erratum use case :** copy to clipboard the full xpath + the source code, formated like `erratum=<full xpath>,<source code>`
 
 ## Where can I get the extension ?
 
 This extension will soon be available on the Google Chrome webstore
 
-## For developpers
+## For developers
 
 - Clone the repository
-- Open you Google Chrome browser
+- Open your Google Chrome browser
 - Go to [chrome://extensions](chrome://extensions)
 - enable `Developper mode`
 - Click on `load unpacked extension`
