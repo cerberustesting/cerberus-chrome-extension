@@ -1,4 +1,4 @@
-#notification-container {
+#cerberus-notification-container {
   position: fixed;
   bottom: 1rem;
   left: 1rem;
@@ -6,7 +6,7 @@
   z-index: 10000;
 }
 
-.notification {
+.cerberus-notification {
   padding: 0.5rem 1rem 0.5rem 1rem;
   margin-top: 1rem;
   background-color: #005a87;
