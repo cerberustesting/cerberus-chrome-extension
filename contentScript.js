@@ -47,20 +47,23 @@ const getPageSourceCode = () => {
 };
 
 const displayCopyNotification = () => {
-  const notificationContainerHtml = `<div id="notification-container"></div>`;
+  const notificationContainerHtml = `<div id="cerberus-notification-container"></div>`;
   const notificationId = `${cerberusElement.action}-${new Date().getTime()}`;
   const notificationHTML = `
-    <div id="${notificationId}" class="notification">
+    <div id="${notificationId}" class="cerberus-notification">
       <p>[copied to clipboard] ${cerberusElement.content.slice(0, 50)}...</p>
     </div>
   `;
 
-  let notificationContainer = document.getElementById("notification-container");
+  let notificationContainer = document.getElementById(
+    "cerberus-notification-container"
+  );
 
   if (!notificationContainer) {
-    console.log("inject notif container");
     document.body.insertAdjacentHTML("beforeend", notificationContainerHtml);
-    notificationContainer = document.getElementById("notification-container");
+    notificationContainer = document.getElementById(
+      "cerberus-notification-container"
+    );
   }
   notificationContainer.insertAdjacentHTML("afterbegin", notificationHTML);
 
@@ -74,7 +77,7 @@ const displayCopyNotification = () => {
 
 // function to save element to the clipboard by temporary creating a new node
 const copyToClipboard = () => {
-  //cleanupSourceCode();
+  cleanupSourceCode();
   let temporaryElement = document.createElement("textarea");
   document.body.appendChild(temporaryElement);
   temporaryElement.value = cerberusElement.content;
@@ -84,21 +87,16 @@ const copyToClipboard = () => {
   displayCopyNotification();
 };
 
-//TODO fix me !
+// Cleaning nodes created to display notifications on webpage before copy to clipboard
 const cleanupSourceCode = () => {
-  console.log(
-    cerberusElement.content.indexOf(`<div id="notification-container">`)
-  );
   const startIndexOfNotificationNode = cerberusElement.content.indexOf(
-    `<div id="notification-container">`
+    `<div id="cerberus-notification-container">`
   );
-  console.log(
-    cerberusElement.content.substring(0, startIndexOfNotificationNode)
-  );
-
-  cerberusElement.content =
-    cerberusElement.content.substring(0, startIndexOfNotificationNode) +
-    "</body></html>";
+  if (startIndexOfNotificationNode > 0) {
+    cerberusElement.content =
+      cerberusElement.content.substring(0, startIndexOfNotificationNode) +
+      "</body></html>";
+  }
 };
 
 /*
@@ -131,7 +129,6 @@ const getErratumElement = (event) => {
   cerberusElement.action = "erratum";
   cerberusElement.dateTime = new Date().toLocaleString();
   cerberusElement.content = `erratum=${xpath},${htmlSourceCode}`;
-  console.log(cerberusElement);
   copyToClipboard();
   //saveToStorage("erratum", erratumElement);
 };
