@@ -14,7 +14,7 @@ This extension aims to provide various tools for testers to help them complete s
 
 ## Where can I get the extension ?
 
-This extension will soon be available on the Google Chrome webstore
+This extension is available on [Chrome Web Store](https://chrome.google.com/webstore/detail/cerberus-extension/cfgifhmddmhbdndfceikcigagacjfepl?hl=en). 
 
 ## For developers
 
