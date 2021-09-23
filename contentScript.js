@@ -152,15 +152,15 @@ const removeHighlightOnElement = (event) => {
 
 // functions to add or remove listeners and activate action
 const setUpAction = (eventType, action) => {
-  document.addEventListener("mouseover", addHighlightOnElement, false);
-  document.addEventListener("mouseout", removeHighlightOnElement, false);
-  document.addEventListener(eventType, action);
+  document.addEventListener("mouseover", addHighlightOnElement, true);
+  document.addEventListener("mouseout", removeHighlightOnElement, true);
+  document.addEventListener(eventType, action, true);
 };
 
 const removeAction = (eventType, action) => {
-  document.removeEventListener("mouseover", addHighlightOnElement, false);
-  document.removeEventListener("mouseout", removeHighlightOnElement, false);
-  document.removeEventListener(eventType, action);
+  document.removeEventListener("mouseover", addHighlightOnElement, true);
+  document.removeEventListener("mouseout", removeHighlightOnElement, true);
+  document.removeEventListener(eventType, action, true);
 };
 
 const toggleErratumAction = (request) => {
