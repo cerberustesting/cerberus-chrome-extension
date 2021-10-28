@@ -1,7 +1,7 @@
 # cerberus-chrome-extension
 
 A Cerberus companion extension for Google Chrome browser.
-[![Screenshots](https://raw.githubusercontent.com/cerberustesting/cerberus-chrome-extension/main/docs/demo.gif)](https://cerberus-testing.com/)
+![demo of the extension](https://raw.githubusercontent.com/cerberustesting/cerberus-chrome-extension/main/docs/demo.gif)
 
 ## What is it ?
 
@@ -12,8 +12,13 @@ This extension aims to provide various tools for testers to help them complete s
 
 - **Erratum use case :** copy to clipboard the full xpath + the source code, formated like `erratum=<full xpath>,<source code>`
 
+## Where can I get the extension ?
+
+This extension is available on [Chrome Web Store](https://chrome.google.com/webstore/detail/cerberus-extension/cfgifhmddmhbdndfceikcigagacjfepl?hl=en). 
+
 ## How to use the extension
-- Install the plugin on your Google Chrome web browser
+- Install the plugin on your Google Chrome web browser from [Chrome Web Store](https://chrome.google.com/webstore/detail/cerberus-extension/cfgifhmddmhbdndfceikcigagacjfepl?hl=en)
+- Optional: pin it to your taskbar (easier to use)
 - Click on the Cerberus logo to display the extension popin
 - Click on the erratum button to activate the extension
 - Hover and click on the element you want to get the path of
@@ -27,10 +32,6 @@ This extension aims to provide various tools for testers to help them complete s
 - There are still some cases where the extension doesn't properly override the default javascript behaviour of the web page
 - If you switch tabs, the extension is still active but the script that the extension needs to work properly has not been injected in the new tab web page. Turn the extension off/on to inject the script in the current tab
 - The script injected by the extension is present on the page as long as you don't reload the page, which can cause css issues. Just reload the page to delete the script and get back to the default css
-
-## Where can I get the extension ?
-
-This extension is available on [Chrome Web Store](https://chrome.google.com/webstore/detail/cerberus-extension/cfgifhmddmhbdndfceikcigagacjfepl?hl=en). 
 
 ## For developers
 
