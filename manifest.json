@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Cerberus extension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cerberus companion extension for web browser testing",
   "homepage_url": "https://github.com/cerberustesting/cerberus-chrome-extension",
   "icons": {
