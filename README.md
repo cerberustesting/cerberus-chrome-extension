@@ -20,12 +20,12 @@ This extension aims to provide various tools for testers to help them complete s
   - The result is copied into your clipboard
 - Click on the button to turn the extension off
   - The extension is active as long as you click on the button to turn it off
-    - Button color blue = inactive
-    - Button color orange = active
+    - blue button = inactive
+    - orange button = active
 
 ### Known issues
-- There is still some cases where the extension doesn't properly override the default javascript behaviour of the web page
-- If you switch tab, the extension is still active but the script that the extension needs to work properly has not been injected in the web page. Turn off/on the extension to inject the script in the current tab
+- There are still some cases where the extension doesn't properly override the default javascript behaviour of the web page
+- If you switch tabs, the extension is still active but the script that the extension needs to work properly has not been injected in the new tab web page. Turn the extension off/on to inject the script in the current tab
 - The script injected by the extension is present on the page as long as you don't reload the page, which can cause css issues. Just reload the page to delete the script and get back to the default css
 
 ## Where can I get the extension ?
