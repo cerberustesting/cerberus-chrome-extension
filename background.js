@@ -33,3 +33,26 @@ chrome.runtime.onInstalled.addListener((details) => {
     cerberusElements: [],
   });
 });
+
+var tabId = "";
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "toggleStartButton" && request.tabId) {
+    this.tabId = request.tabId;
+    chrome.scripting.executeScript({
+      target: { tabId: tabId },
+      function: toggleDivInContentScript
+    });
+
+  }
+});
+
+
+function toggleDivInContentScript() {
+  toggleDiv();
+  start();
+  /*chrome.tabs.get(this.tabId).query({active: true, currentWindow: true}, function(tabs) {
+    chrome.runtime.sendMessage({action: "toggleDiv", tabId: tabs[0].id});
+  });
+   */
+}
+

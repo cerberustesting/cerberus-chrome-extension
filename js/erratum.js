@@ -1,3 +1,42 @@
+//let cerberusElements = [];
+
+const erratumButton = document.getElementById("erratum-btn");
+chrome.storage.sync.get(["isErratumActive"], (response) => {
+  setButtonStyle(response.isErratumActive);
+});
+
+if (erratumButton!=undefined) {
+  erratumButton.addEventListener("click", () => {
+    chrome.storage.sync.get(["isErratumActive"], (response) => {
+      chrome.storage.sync.set(
+          {
+            isErratumActive: !response.isErratumActive,
+          },
+          () => {
+            setButtonStyle(!response.isErratumActive);
+          }
+      );
+    });
+  });
+}
+
+const setButtonStyle = (isActive) => {
+  if (isActive) {
+    erratumButton.classList.add("active");
+  } else {
+    if (erratumButton!=null) {
+      erratumButton.classList.remove("active");
+    }
+  }
+};
+
+/*
+chrome.storage.sync.get(["cerberusElements"], (res) => {
+  cerberusElements = res.cerberusElements ? res.cerberusElements : [];
+});
+*/
+
+
 // Temporary test object to save the result into the storage
 const cerberusElement = {
   action: "",
@@ -15,8 +54,8 @@ const getXPathFromElement = (element) => {
     let sibling = nodeElement.previousSibling;
     while (sibling) {
       if (
-        sibling.nodeType !== Node.DOCUMENT_TYPE_NODE &&
-        sibling.nodeName === nodeElement.nodeName
+          sibling.nodeType !== Node.DOCUMENT_TYPE_NODE &&
+          sibling.nodeName === nodeElement.nodeName
       ) {
         nbOfPreviousSiblings++;
       }
@@ -32,9 +71,9 @@ const getXPathFromElement = (element) => {
     }
     const prefix = nodeElement.prefix ? `${nodeElement.prefix}:` : "";
     const nth =
-      nbOfPreviousSiblings || hasNextSiblings
-        ? `[${nbOfPreviousSiblings + 1}]`
-        : "";
+        nbOfPreviousSiblings || hasNextSiblings
+            ? `[${nbOfPreviousSiblings + 1}]`
+            : "";
     parts.push(prefix + nodeElement.localName + nth);
     nodeElement = nodeElement.parentNode;
   }
@@ -56,13 +95,13 @@ const displayCopyNotification = () => {
   `;
 
   let notificationContainer = document.getElementById(
-    "cerberus-notification-container"
+      "cerberus-notification-container"
   );
 
   if (!notificationContainer) {
     document.body.insertAdjacentHTML("beforeend", notificationContainerHtml);
     notificationContainer = document.getElementById(
-      "cerberus-notification-container"
+        "cerberus-notification-container"
     );
   }
   notificationContainer.insertAdjacentHTML("afterbegin", notificationHTML);
@@ -90,12 +129,12 @@ const copyToClipboard = () => {
 // Cleaning nodes created to display notifications on webpage before copy to clipboard
 const cleanupSourceCode = () => {
   const startIndexOfNotificationNode = cerberusElement.content.indexOf(
-    `<div id="cerberus-notification-container">`
+      `<div id="cerberus-notification-container">`
   );
   if (startIndexOfNotificationNode > 0) {
     cerberusElement.content =
-      cerberusElement.content.substring(0, startIndexOfNotificationNode) +
-      "</body></html>";
+        cerberusElement.content.substring(0, startIndexOfNotificationNode) +
+        "</body></html>";
   }
 };
 
@@ -165,8 +204,8 @@ const removeAction = (eventType, action) => {
 
 const toggleErratumAction = (request) => {
   request.action === "erratum" && request.isActive === true
-    ? setUpAction("click", getErratumElement)
-    : removeAction("click", getErratumElement);
+      ? setUpAction("click", getErratumElement)
+      : removeAction("click", getErratumElement);
 };
 
 // function that receive a message from the background service worker with the action to perform

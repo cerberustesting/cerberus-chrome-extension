@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=UTF-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>XPath Generator</title>
+    <link href=/css/contentscript.css rel=stylesheet>
+    <link href=/css/popup.css rel=stylesheet>
+    <link href=/css/erratum.css rel=stylesheet>
+    <link href=/css/ft-syntax-highlight.css rel=stylesheet>
+</head>
+<body>
+<div class="popupscript">
+    <div class="text-block-harness">
+        <img width="30" height="30" src="./images/logo/logo.png">
+        <h4> Cerberus Xpath Generator </h4>
+    </div>
+    <div class="text-block-harness"> A companion to help software tester finding element path. </div>
+    <div class="text-block-harness">
+        <div class="text-block-harness"> To find Xpath clicking on the element : </div>
+        <button class="btn btn-primary" id="toggleButton"> Start Xpath Generator </button>
+        </br></br>
+        <div class="text-block-harness"> To use the Erratum Feature (Auto Healing) : </div>
+        <button class="btn btn-primary" id="erratum-btn"> Get Erratum Source </button>
+    </div>
+    <div class="text-block-harness">
+        <a href="https://cerberus-testing.com/" target="_blank">Visit Cerberus Testing Website ↗️</a>
+    </div>
+    <div class="version-harness"> Cerberus Xpath Generator v1.0 - 2025 </div>
+</div>
+<script src=/background.js></script>
+<script src=/js/xpathgenerator.js></script>
+<script src=/js/contentscript.js></script>
+<script src=/js/popup.js></script>
+<script src=/js/erratum.js></script>
+</body>
+</html>
