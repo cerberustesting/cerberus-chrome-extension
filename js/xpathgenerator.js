@@ -281,7 +281,7 @@ function getXPathText(element) {
 
             if (xpathResult.count>1) {
                 var option = getHighlightedElementRowNumber('//' + tagName + '[.="' + text + '"]');
-                var xpathResultSel = getXpathObject('//' + tagName + '[.="' + text + '"])['+option+']', 3, 1);
+                var xpathResultSel = getXpathObject('(//' + tagName + '[.="' + text + '"])['+option+']', 3, 1);
                 returnVal.push(xpathResultSel);
             }
         }
